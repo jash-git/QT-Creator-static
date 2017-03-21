@@ -1,0 +1,1283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0052)http://matttt-blog.blogspot.tw/2010/07/qtstatic.html -->
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta content="blogger" name="generator">
+<link href="http://matttt-blog.blogspot.tw/favicon.ico" rel="icon" type="image/x-icon">
+<link href="http://matttt-blog.blogspot.com/2010/07/qtstatic.html" rel="canonical">
+<link rel="alternate" type="application/atom+xml" title="Matttt的空間 - Atom" href="http://matttt-blog.blogspot.com/feeds/posts/default">
+<link rel="alternate" type="application/rss+xml" title="Matttt的空間 - RSS" href="http://matttt-blog.blogspot.com/feeds/posts/default?alt=rss">
+<link rel="service.post" type="application/atom+xml" title="Matttt的空間 - Atom" href="https://www.blogger.com/feeds/5127187991066542514/posts/default">
+
+<link rel="alternate" type="application/atom+xml" title="Matttt的空間 - Atom" href="http://matttt-blog.blogspot.com/feeds/7498760643098067719/comments/default">
+<link href="./Matttt的空間_ QT編譯成靜態(static)_files/未命名.bmp" rel="image_src">
+<meta content="http://matttt-blog.blogspot.com/2010/07/qtstatic.html" property="og:url">
+<meta content="QT編譯成靜態(static)" property="og:title">
+<meta content="為什麼要編譯成靜態的  因為時常把程式寫好編譯後  要將程式去別台執行  就會出現缺少XXXXX.dll  這就是編譯器是用動態連結  除非把所有需要的dll都一起複製帶著走  要不然程式是無法動作的  因此要將程式所用到的函數都包在一個執行檔裡面  所以要編譯成靜態的   要是..." property="og:description">
+<meta content="http://1.bp.blogspot.com/_R_-47Sr-DXQ/TDp1cQ4Pl_I/AAAAAAAAASk/LjyrE4BDTaI/w1200-h630-p-k-no-nu/%E6%9C%AA%E5%91%BD%E5%90%8D.bmp" property="og:image">
+<!--[if IE]> <script> (function() { var html5 = ("abbr,article,aside,audio,canvas,datalist,details," + "figure,footer,header,hgroup,mark,menu,meter,nav,output," + "progress,section,time,video").split(','); for (var i = 0; i < html5.length; i++) { document.createElement(html5[i]); } try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {} })(); </script> <![endif]-->
+<title>Matttt的空間: QT編譯成靜態(static)</title>
+<link href="./Matttt的空間_ QT編譯成靜態(static)_files/shThemeDefault.css" rel="stylesheet" type="text/css">
+<link href="./Matttt的空間_ QT編譯成靜態(static)_files/shCore.css" rel="stylesheet" type="text/css">
+<script src="./Matttt的空間_ QT編譯成靜態(static)_files/saved_resource" async="" type="text/javascript"></script><script src="./Matttt的空間_ QT編譯成靜態(static)_files/cb=gapi.loaded_1" async=""></script><script src="./Matttt的空間_ QT編譯成靜態(static)_files/cb=gapi.loaded_0" async=""></script><script src="./Matttt的空間_ QT編譯成靜態(static)_files/shCore.js.下載" type="text/javascript"></script>
+<script src="./Matttt的空間_ QT編譯成靜態(static)_files/shBrushBash.js.下載" type="text/javascript"></script>
+<script src="./Matttt的空間_ QT編譯成靜態(static)_files/shBrushCpp.js.下載" type="text/javascript"></script>
+<script src="./Matttt的空間_ QT編譯成靜態(static)_files/shBrushPhp.js.下載" type="text/javascript"></script>
+<script src="./Matttt的空間_ QT編譯成靜態(static)_files/shBrushSql.js.下載" type="text/javascript"></script>
+<script src="./Matttt的空間_ QT編譯成靜態(static)_files/shBrushXml.js.下載" type="text/javascript"></script>
+<script src="./Matttt的空間_ QT編譯成靜態(static)_files/shBrushJScript.js.下載" type="text/javascript"></script>
+<script src="./Matttt的空間_ QT編譯成靜態(static)_files/shBrushCss.js.下載" type="text/javascript"></script>
+<script src="./Matttt的空間_ QT編譯成靜態(static)_files/shBrushSql.js.下載" type="text/javascript"></script>
+<script type="text/javascript">
+        SyntaxHighlighter.config.stripBrs = true;
+        SyntaxHighlighter.config.bloggerMode = true;
+        SyntaxHighlighter.defaults["toolbar"] = false;
+        SyntaxHighlighter.defaults["auto-links"] = false;
+        SyntaxHighlighter.all();
+    </script>
+<link type="text/css" rel="stylesheet" href="./Matttt的空間_ QT編譯成靜態(static)_files/124887373-widget_css_bundle.css">
+<link type="text/css" rel="stylesheet" href="./Matttt的空間_ QT編譯成靜態(static)_files/authorization.css">
+<style type="text/css">
+        .syntaxhighlighter { 
+             overflow-y: hidden !important; 
+             overflow-x: auto !important; 
+        }
+    </style>
+<style id="page-skin-1" type="text/css"><!--
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Natyre
+Author:   Klodian
+URL:      www.deluxetemplates.net
+Date:     June 2009
+License:  This free Blogger template is licensed under the Creative Commons Attribution 3.0 License, which permits both personal and commercial use.
+However, to satisfy the 'attribution' clause of the license, you are required to keep the footer links intact which provides due credit to its authors. For more specific details about the license, you may visit the URL below:
+http://creativecommons.org/licenses/by/3.0/
+----------------------------------------------- */
+#navbar-iframe {
+display: none !important;
+}
+/* Variable definitions
+====================
+<Variable name="bgcolor" description="Page Background Color"
+type="color" default="#fff">
+<Variable name="textcolor" description="Text Color"
+type="color" default="#333">
+<Variable name="linkcolor" description="Link Color"
+type="color" default="#58a">
+<Variable name="pagetitlecolor" description="Blog Title Color"
+type="color" default="#666">
+<Variable name="descriptioncolor" description="Blog Description Color"
+type="color" default="#999">
+<Variable name="titlecolor" description="Post Title Color"
+type="color" default="#c60">
+<Variable name="bordercolor" description="Border Color"
+type="color" default="#ccc">
+<Variable name="sidebarcolor" description="Sidebar Title Color"
+type="color" default="#999">
+<Variable name="sidebartextcolor" description="Sidebar Text Color"
+type="color" default="#666">
+<Variable name="visitedlinkcolor" description="Visited Link Color"
+type="color" default="#999">
+<Variable name="bodyfont" description="Text Font"
+type="font" default="normal normal 100% Georgia, Serif">
+<Variable name="headerfont" description="Sidebar Title Font"
+type="font"
+default="normal normal 78% 'Trebuchet MS',Trebuchet,Arial,Verdana,Sans-serif">
+<Variable name="pagetitlefont" description="Blog Title Font"
+type="font"
+default="normal normal 200% Georgia, Serif">
+<Variable name="descriptionfont" description="Blog Description Font"
+type="font"
+default="normal normal 78% 'Trebuchet MS', Trebuchet, Arial, Verdana, Sans-serif">
+<Variable name="postfooterfont" description="Post Footer Font"
+type="font"
+default="normal normal 78% 'Trebuchet MS', Trebuchet, Arial, Verdana, Sans-serif">
+<Variable name="startSide" description="Side where text starts in blog language"
+type="automatic" default="left">
+<Variable name="endSide" description="Side where text ends in blog language"
+type="automatic" default="right">
+*/
+/* Use this with templates/template-twocol.html */
+body {
+background:#1A0E07 url(http://matttt2.myweb.hinet.net/bgr_html.png) repeat-x scroll center top;
+color:#000000;
+font-family:Georgia Serif;
+font-size:small;
+font-size-adjust:none;
+font-stretch:normal;
+font-style:normal;
+font-variant:normal;
+font-weight:normal;
+line-height:normal;
+margin:0;
+text-align:center;
+}
+a:link {
+color:#21759B;
+text-decoration:none;
+}
+a:visited {
+color:#21759B;
+text-decoration:none;
+}
+a:hover {
+color:#5588AA;
+text-decoration:underline;
+}
+a img {
+border-width:0;
+}
+#header-wrapper {
+height:301px;
+width:1000px;
+}
+#header-inner {
+background-position:center center;
+margin-left:auto;
+margin-right:auto;
+}
+#header {
+color:#000000;
+padding-top:57px;
+text-align:left;
+}
+#header h1 {
+font-family:"Times New Roman",Times,serif;
+font-size:42px;
+font-size-adjust:none;
+font-stretch:normal;
+font-style:italic;
+font-variant:normal;
+font-weight:normal;
+letter-spacing:0;
+line-height:normal;
+margin:5px 5px 0;
+padding:15px 20px 0;
+text-transform:none;
+}
+#header a {
+color:#666666;
+text-decoration:none;
+}
+#header a:hover {
+color:#666666;
+}
+#header .description {
+color:#333333;
+font-family:times New Roman;
+font-size:17px;
+font-size-adjust:none;
+font-stretch:normal;
+font-style:italic;
+font-variant:normal;
+font-weight:normal;
+letter-spacing:0;
+line-height:normal;
+margin:0 5px 5px;
+max-width:1000px;
+padding:0 20px 15px;
+text-transform:none;
+}
+#header img {
+margin-left:auto;
+margin-right:auto;
+}
+#outer-wrapper {
+font-family:arial;
+font-size:100%;
+font-size-adjust:none;
+font-stretch:normal;
+font-style:normal;
+font-variant:normal;
+font-weight:normal;
+line-height:normal;
+margin:0 auto;
+text-align:left;
+width:1000px;
+}
+#main-wrapper {
+float:left;
+margin-left:56px;
+margin-top:80px;
+overflow:hidden;
+width:610px;
+}
+#sidebar-wrapper {
+float:right;
+margin-right:54px;
+margin-top:30px;
+overflow:hidden;
+width:220px;
+}
+h2 {
+border-bottom:1px solid #333333;
+color:#000000;
+font-family:tahoma;
+font-size:19px;
+font-size-adjust:none;
+font-stretch:normal;
+font-style:normal;
+font-variant:normal;
+font-weight:normal;
+letter-spacing:0;
+line-height:1.4em;
+margin:1.5em 0 0.75em;
+text-transform:none;
+}
+h2.date-header {
+margin:1.5em 0 0.5em;
+}
+.post {
+margin:0.5em 0 1.5em;
+padding-bottom:1.5em;
+}
+.post h3 {
+border-bottom:1px solid #CCCCCC;
+color:#000000;
+font-family:tahoma;
+font-size:25px;
+font-weight:normal;
+line-height:1.4em;
+margin:0.25em 0 0;
+padding:0 0 4px;
+}
+.post h3 a, .post h3 a:visited, .post h3 strong {
+color:#000000;
+display:block;
+font-weight:normal;
+text-decoration:none;
+}
+.post h3 strong, .post h3 a:hover {
+color:#333333;
+}
+.post-body {
+color:#000000;
+font-size:16px;
+line-height:1.6em;
+margin:0 0 0.75em;
+}
+.post-body blockquote {
+line-height:1.3em;
+}
+.post-footer {
+color:#666666;
+font-family:georgia;
+font-size:12px;
+font-size-adjust:none;
+font-stretch:normal;
+font-style:italic;
+font-variant:normal;
+font-weight:normal;
+letter-spacing:0;
+line-height:1.4em;
+margin:0.75em 0;
+text-transform:none;
+}
+.comment-link {
+}
+.post img {
+border:1px solid #CCCCCC;
+padding:2px;
+}
+.post blockquote {
+font-family:georgia;
+font-style:italic;
+margin:1em 20px;
+}
+.post blockquote p {
+margin:0.75em 0;
+}
+.comment-author {
+}
+#comments h4 {
+color:#666666;
+font-weight:bold;
+letter-spacing:0.2em;
+line-height:1.4em;
+margin:1em 0;
+text-transform:none;
+}
+#comments-block {
+line-height:1.6em;
+margin:1em 0 1.5em;
+}
+#comments-block .comment-author {
+background:#EEEEEE none repeat scroll 0 0;
+border:1px solid #EEEEEE;
+font-size:15px;
+font-weight:bold;
+margin-right:20px;
+padding:5px;
+}
+#comments .blogger-comment-icon, .blogger-comment-icon {
+background:#EEEEEE none repeat scroll 0 0;
+border-color:#CCCCCC #CCCCCC #EEEEEE;
+border-style:solid;
+border-width:2px 1px 1px;
+line-height:16px;
+padding:5px;
+}
+#comments-block .comment-body {
+border-left:1px solid #EEEEEE;
+border-right:1px solid #EEEEEE;
+margin-left:0;
+margin-right:20px;
+padding:7px;
+}
+#comments-block .comment-footer {
+border-bottom:1px solid #EEEEEE;
+border-left:1px solid #EEEEEE;
+border-right:1px solid #EEEEEE;
+font-size:11px;
+line-height:1.4em;
+margin:-0.25em 20px 2em 0;
+padding:5px;
+text-transform:none;
+}
+#comments-block .comment-body p {
+margin:0 0 0.75em;
+}
+.deleted-comment {
+color:gray;
+font-style:italic;
+}
+#blog-pager-newer-link {
+float:left;
+}
+#blog-pager-older-link {
+float:right;
+}
+#blog-pager {
+text-align:center;
+}
+.feed-links {
+clear:both;
+line-height:2.5em;
+}
+.sidebar {
+color:#333333;
+font-size:13px;
+line-height:1.5em;
+}
+.sidebar ul {
+list-style-image:none;
+list-style-position:outside;
+list-style-type:none;
+margin:0;
+padding:0;
+}
+.sidebar li {
+background:transparent url(http://1.bp.blogspot.com/_u1lLXYtR-ow/SkE4AMlxU5I/AAAAAAAAA2w/5erjHug0JIQ/s1600/ico_cat.gif) no-repeat scroll left 5px;
+border-bottom:1px dotted #CCCCCC;
+line-height:1.5em;
+margin:0;
+padding:0 0 0.25em 15px;
+}
+.sidebar .widget, .main .widget {
+margin:0 0 1.5em;
+padding:0 0 1.5em;
+}
+.main .Blog {
+border-bottom-width:0;
+}
+.profile-img {
+border:1px solid #CCCCCC;
+float:left;
+margin:0 5px 5px 0;
+padding:4px;
+}
+.profile-data {
+color:#999999;
+font-family:'Trebuchet MS',Trebuchet,Arial,Verdana,Sans-serif;
+font-size:78%;
+font-size-adjust:none;
+font-stretch:normal;
+font-style:normal;
+font-variant:normal;
+font-weight:bold;
+letter-spacing:0.1em;
+line-height:1.6em;
+margin:0;
+text-transform:uppercase;
+}
+.profile-datablock {
+margin:0.5em 0;
+}
+.profile-textblock {
+line-height:1.6em;
+margin:0.5em 0;
+}
+.profile-link {
+font-family:'Trebuchet MS',Trebuchet,Arial,Verdana,Sans-serif;
+font-size:78%;
+font-size-adjust:none;
+font-stretch:normal;
+font-style:normal;
+font-variant:normal;
+font-weight:normal;
+letter-spacing:0.1em;
+line-height:normal;
+text-transform:uppercase;
+}
+#header2 {
+background:transparent url(http://3.bp.blogspot.com/-cgpVpk8rftY/Tb7HuHDyYuI/AAAAAAAAAbk/Qdsv2nQyrlE/s1600/bgr_header.png) no-repeat scroll center top;
+margin:0 auto;
+width:1075px;
+}
+#content-wrapper {
+background:transparent url(http://4.bp.blogspot.com/-1_jzx0-5H7k/Tb7HtZAMiDI/AAAAAAAAAcc/pTp1ifHyo1Q/s1600/bgr_body.png) repeat-y scroll 0 0;
+}
+#content {
+background:transparent url(http://1.bp.blogspot.com/-jRdyUlduftw/Tb7Hthd-DqI/AAAAAAAAAbc/DxH6uEAj1UM/s1600/bgr_body_top.png) no-repeat scroll 0 0;
+}
+#footer {
+background:#1A0E07 url(http://4.bp.blogspot.com/-FvKgPRAiHQs/Tb7Hth5ELqI/AAAAAAAAAbY/yKTni8txhyE/s1600/bgr_footer.png) no-repeat scroll center top;
+margin:0 auto;
+width:1075px;
+}
+#footer_inner {
+background:transparent url(http://4.bp.blogspot.com/-TU-Yq4U2bSs/Tb7Ht3y8CrI/AAAAAAAAAbg/bnj9impDrM8/s1600/bgr_footer_inner.png) no-repeat scroll 0 0;
+height:121px;
+margin:0 auto;
+overflow:hidden;
+width:1000px;
+}
+#footer_text {
+font-family:arial;
+margin-left:-477px;
+margin-top:67px;
+}
+#footer_text p {
+color:#000000;
+font-family:arial;
+font-size:12px;
+}
+#footer_text a {
+color:#000000;
+text-decoration:underline;
+}
+#footer_text a:hover {
+text-decoration:none;
+}
+#footer_text p.designed b a {
+color:#FFFFFF;
+}
+#main_search {
+float:right;
+}
+#searchform_top {
+float:left;
+margin:-73px 56px 0 0;
+}
+#searchform_top_text {
+background:transparent none repeat scroll 0 0;
+border:0 none;
+color:#898174;
+float:left;
+font-family:Arial,Helvetica,sans-serif;
+font-size:13px;
+margin:0 5px 0 0;
+width:200px;
+}
+#gosearch {
+float:left;
+}
+#header_rss {
+clear:both;
+width:1000px;
+}
+#header_rss img {
+margin-left:429px;
+position:relative;
+top:3px;
+}
+
+--></style>
+<script type="text/javascript">function a(){var b=window.location.href,c=b.split("?");switch(c.length){case 1:return b+"?m=1";case 2:return 0<=c[1].search("(^|&)m=")?null:b+"&m=1";default:return null}}var d=navigator.userAgent;if(-1!=d.indexOf("Mobile")&&-1!=d.indexOf("WebKit")&&-1==d.indexOf("iPad")||-1!=d.indexOf("Opera Mini")||-1!=d.indexOf("IEMobile")){var e=a();e&&window.location.replace(e)};
+</script><script type="text/javascript" src="./Matttt的空間_ QT編譯成靜態(static)_files/google_top_exp.js.下載"></script><style>.gc-bubbleDefault{background-color:transparent !important;text-align:left;padding:0 !important;margin:0 !important;border:0 !important;table-layout:auto !important}.gc-reset{background-color:transparent !important;border:0 !important;padding:0 !important;margin:0 !important;text-align:left}.pls-bubbleTop{border-bottom:1px solid #ccc !important}.pls-topTail,.pls-vertShimLeft,.pls-contentLeft{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/border_3.gif) !important}.pls-topTail{background-repeat:repeat-x !important;background-position:bottom !important}.pls-vertShim{background-color:#fff !important;text-align:right}.tbl-grey .pls-vertShim{background-color:#f5f5f5 !important}.pls-vertShimLeft{background-repeat:repeat-y !important;background-position:right !important;height:4px}.pls-vertShimRight{height:4px}.pls-confirm-container .pls-vertShim{background-color:#fff3c2 !important}.pls-contentWrap{background-color:#fff !important;position:relative !important;vertical-align:top}.pls-contentLeft{background-repeat:repeat-y;background-position:right;vertical-align:top}.pls-dropRight{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropR_3.png) !important;background-repeat:repeat-y !important;vertical-align:top}.pls-vert,.pls-tailleft,.pls-dropTR .pls-dropBR,.pls-dropBL,.pls-vert img{vertical-align:top}.pls-dropBottom{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropB_3.png) !important;background-repeat:repeat-x !important;width:100%;vertical-align:top}.pls-topLeft{background:inherit !important;text-align:right;vertical-align:bottom}.pls-topRight{background:inherit !important;text-align:left;vertical-align:bottom}.pls-bottomLeft{background:inherit !important;text-align:right}.pls-bottomRight{background:inherit !important;text-align:left;vertical-align:top}.pls-tailtop,.pls-tailright,.pls-tailbottom,.pls-tailleft{display:none;position:relative}.pls-tailbottom,.pls-tailtop,.pls-tailright,.pls-tailleft,.pls-dropTR,.pls-dropBR,.pls-dropBL{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleSprite_3.png) !important;background-repeat:no-repeat}.tbl-grey .pls-tailbottom,.tbl-grey .pls-tailtop,.tbl-grey .pls-tailright,.tbl-grey .pls-tailleft,.tbl-grey .pls-dropTR,.tbl-grey .pls-dropBR,.tbl-grey .pls-dropBL{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleSprite-grey.png) !important}.pls-tailbottom{background-position:-23px 0}.pls-confirm-container .pls-tailbottom{background-position:-23px -10px}.pls-tailtop{background-position:-19px -20px}.pls-tailright{background-position:0 0}.pls-tailleft{background-position:-10px 0}.pls-tailtop{vertical-align:top}.gc-bubbleDefault td{line-height:0;font-size:0}.pls-topLeft img,.pls-topRight img,.pls-tailbottom{vertical-align:bottom}.pls-bottomLeft img,.bubbleDropTR,.pls-dropBottomL img,.pls-dropBottom img,.pls-dropBottomR img,.pls-bottomLeft{vertical-align:top}.pls-dropTR{background-position:0 -22px}.pls-dropBR{background-position:0 -27px}.pls-dropBL{background-position:0 -16px}.pls-spacertop,.pls-spacerright,.pls-spacerbottom,.pls-spacerleft{position:static !important}.pls-spinner{bottom:0;position:absolute;left:0;margin:auto;right:0;top:0} </style></head>
+<body>
+<div class="navbar section" id="navbar"><div class="widget Navbar" data-version="1" id="Navbar1"><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="" tabindex="0" vspace="0" width="100%" id="navbar-iframe" name="navbar-iframe" src="./Matttt的空間_ QT編譯成靜態(static)_files/navbar.html"></iframe></div>
+<script type="text/javascript" src="./Matttt的空間_ QT編譯成靜態(static)_files/plusone.js.下載" gapi_processed="true"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d5127187991066542514\x26blogName\x3dMatttt%E7%9A%84%E7%A9%BA%E9%96%93\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dLIGHT\x26layoutType\x3dLAYOUTS\x26searchRoot\x3dhttp://matttt-blog.blogspot.com/search\x26blogLocale\x3dzh_TW\x26v\x3d2\x26homepageUrl\x3dhttp://matttt-blog.blogspot.com/\x26targetPostID\x3d7498760643098067719\x26blogPostOrPageUrl\x3dhttp://matttt-blog.blogspot.com/2010/07/qtstatic.html\x26vt\x3d3986401033596894467',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script><script type="text/javascript">
+(function() {
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = '//pagead2.googlesyndication.com/pagead/js/google_top_exp.js';
+var head = document.getElementsByTagName('head')[0];
+if (head) {
+head.appendChild(script);
+}})();
+</script>
+</div></div>
+<div id="header2">
+<div id="outer-wrapper"><div id="wrap2">
+<!-- skip links for text browsers -->
+<span id="skiplinks" style="display:none;">
+<a href="http://matttt-blog.blogspot.tw/2010/07/qtstatic.html#main">skip to main </a> |
+      <a href="http://matttt-blog.blogspot.tw/2010/07/qtstatic.html#sidebar">skip to sidebar</a>
+</span>
+<div id="header-wrapper">
+<div class="header section" id="header"><div class="widget Header" data-version="1" id="Header1">
+<div id="header-inner">
+<div class="titlewrapper">
+<h1 class="title">
+<a href="http://matttt-blog.blogspot.tw/">Matttt的空間</a>
+</h1>
+</div>
+<div class="descriptionwrapper">
+<p class="description"><span>無聊用的</span></p>
+</div>
+</div>
+</div></div>
+<div id="main_search">
+<form action="http://matttt-blog.blogspot.tw/2010/07/search/" id="searchform_top" method="get">
+<div>
+<input id="searchform_top_text" name="q" onclick="this.value=&#39;&#39;;" type="text" value="Type your search here...">
+<input id="gosearch" src="./Matttt的空間_ QT編譯成靜態(static)_files/button_go.gif" type="image">
+</div>
+</form>
+</div>
+<div id="header_rss">
+<img alt="Theme Preview Rss" src="./Matttt的空間_ QT編譯成靜態(static)_files/button_rss.png">
+</div>
+</div></div>
+<div id="content-wrapper">
+<div id="content">
+<div id="crosscol-wrapper" style="text-align:center">
+<div class="crosscol no-items section" id="crosscol"></div>
+</div>
+<div id="main-wrapper">
+<div class="main section" id="main"><div class="widget Blog" data-version="1" id="Blog1">
+<div class="blog-posts hfeed">
+<div class="post hentry uncustomized-post-template">
+<a name="7498760643098067719"></a>
+<h3 class="post-title entry-title">
+<a href="http://matttt-blog.blogspot.tw/2010/07/qtstatic.html">QT編譯成靜態(static)</a>
+</h3>
+<div class="post-footer">
+<div class="post-header-line-1"></div>
+<div class="post-footer-line post-footer-line-1">
+<span class="post-author vcard">
+張貼者：
+<span class="fn">matttt</span>
+</span>
+<span class="post-timestamp">on 2010年7月13日</span>
+</div>
+<div class="post-footer-line post-footer-line-2">
+<span class="post-labels">
+標籤：
+<a href="http://matttt-blog.blogspot.tw/search/label/QT" rel="tag">QT</a>
+</span>
+<span class="post-comment-link">
+</span>
+</div></div>
+<div class="post-header-line-1"></div>
+<div class="post-body entry-content">
+為什麼要編譯成靜態的<br>
+因為時常把程式寫好編譯後<br>
+要將程式去別台執行<br>
+就會出現缺少XXXXX.dll<br>
+這就是編譯器是用動態連結<br>
+除非把所有需要的dll都一起複製帶著走<br>
+要不然程式是無法動作的<br>
+因此要將程式所用到的函數都包在一個執行檔裡面<br>
+所以要編譯成靜態的<br>
+<br>
+要是沒編譯成靜態
+開啟檔案會出現下面的警告<br>
+找不到QtCored4.dll <br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://1.bp.blogspot.com/_R_-47Sr-DXQ/TDp1cQ4Pl_I/AAAAAAAAASk/LjyrE4BDTaI/s1600/%E6%9C%AA%E5%91%BD%E5%90%8D.bmp" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="./Matttt的空間_ QT編譯成靜態(static)_files/未命名.bmp"></a></div>
+<br>
+所以接下來就要將QT編譯成靜態<br>
+複製你安裝QT的資料夾<br>
+預設路徑為C:\qt\發布的版本<br>
+例如我的是C:\qt\2010.02.1<br>
+複製一份命名為C:\qt\2010.02.1-static<br>
+接下來開啟QT的Qt Command Prompt<br>
+預設路徑為<br>
+開始→程式集→Qt SDK by Nokia v2010.02.1 (open source)→Qt Command Prompt<br>
+開啟後將目錄轉到你複製完成的資料夾底下的qt<br>
+<div><div id="highlighter_458148" class="syntaxhighlighter  shell"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="shell functions">cd</code> <code class="shell plain">C:\qt\2010.02.1-ststic\qt</code></div></div></td></tr></tbody></table></div></div>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://2.bp.blogspot.com/_R_-47Sr-DXQ/TDp20CbJ-pI/AAAAAAAAASs/i9Wp2ej5cf0/s1600/%E6%9C%AA%E5%91%BD%E5%90%8D.bmp" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="./Matttt的空間_ QT編譯成靜態(static)_files/未命名(1).bmp"></a></div>
+<br>
+接下來所要下的命令為<br>
+<div><div id="highlighter_326838" class="syntaxhighlighter  shell"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="shell plain">configure -static -release -fast -no-phonon -no-opengl</code></div></div></td></tr></tbody></table></div></div><br>
+會出現<br>
+Which edition of Qt do you want to use ?<br>
+Type 'c' if you want to use the Commercial Edition.<br>
+Type 'o' if you want to use the Open Source Edition.<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://2.bp.blogspot.com/_R_-47Sr-DXQ/TDp3IKwZPyI/AAAAAAAAAS0/ePnGIx-OauU/s1600/%E6%9C%AA%E5%91%BD%E5%90%8D.bmp" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="./Matttt的空間_ QT編譯成靜態(static)_files/未命名(2).bmp"></a></div>
+<br>
+這時候就要打<br>
+<div><div id="highlighter_738413" class="syntaxhighlighter  shell"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="shell plain">o</code></div></div></td></tr></tbody></table></div></div>
+然後按Enter <br>
+因為通常安裝的都是開放原始碼的授權程式<br>
+除非你有去購買授權版的<br>
+<br>
+接下來就是會出現<br>
+This is the Qt for Windows Open Source Edition.<br>
+<br>
+You are licensed to use this software under the terms of<br>
+the GNU Lesser General Public License (LGPL) version 2.1<br>
+or the GNU General Public License (GPL) version 3.<br>
+<br>
+Type '3' to view the GNU General Public License version 3 (GPLv3).<br>
+Type 'L' to view the Lesser GNU General Public License version 2.1 (LGPLv2.1).<br>
+Type 'y' to accept this license offer.<br>
+Type 'n' to decline this license offer.<br>
+<br>
+Do you accept the terms of the license?<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://2.bp.blogspot.com/_R_-47Sr-DXQ/TDp3v8tWouI/AAAAAAAAAS8/3-7ivmJ-Avo/s1600/%E6%9C%AA%E5%91%BD%E5%90%8D.bmp" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="./Matttt的空間_ QT編譯成靜態(static)_files/未命名(3).bmp"></a></div>
+<br>
+輸入3或L是看那些開放原始碼的法律條文<br>
+要看的可以自己進去看<br>
+所以在這裡輸入<br>
+<div><div id="highlighter_272493" class="syntaxhighlighter  shell"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="shell plain">y</code></div></div></td></tr></tbody></table></div></div>
+案Enter<br>
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://3.bp.blogspot.com/_R_-47Sr-DXQ/TDqrYkC0D0I/AAAAAAAAATM/fXZrVpI4J8E/s1600/%E6%9C%AA%E5%91%BD%E5%90%8D.bmp" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="./Matttt的空間_ QT編譯成靜態(static)_files/未命名(4).bmp"></a></div>
+<br>
+像上面出現<br>
+Qt is now configured for building. Just run mingw32-make.<br>
+To reconfigure, run mingw32-make confclean and configure.<br>
+就成功了<br>
+<br>
+接下來就會開始自動設定檔案<br>
+設定完成就輸入<br>
+<div><div id="highlighter_659333" class="syntaxhighlighter  shell"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="shell plain">mingw32-</code><code class="shell functions">make</code></div></div></td></tr></tbody></table></div></div>
+輸入完後要等大約2-3小時<br>
+出現類似以下的訊息<br>
+就代表編譯完成<br>
+mingw32-make[4]:<br>
+mingw32-make[3]:<br>
+mingw32-make[2]:<br>
+mingw32-make[1]:<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://4.bp.blogspot.com/_R_-47Sr-DXQ/TDvC4PGWnWI/AAAAAAAAATU/DXfK2soDk-0/s1600/%E6%9C%AA%E5%91%BD%E5%90%8D.bmp" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="./Matttt的空間_ QT編譯成靜態(static)_files/未命名(5).bmp"></a></div>
+<br>
+編完後此Qt的檔案就會變成靜態的模式 <br>
+接下來就是去Qt Creator設定<br>
+將編譯器指向此靜態的函式庫<br>
+開啟Qt Creator<br>
+功能表的Tools→Options→Qt4<br>
+按下新增按鈕 <br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://3.bp.blogspot.com/_R_-47Sr-DXQ/TDwP9K1sTcI/AAAAAAAAATc/VbywG8WNHlk/s1600/%E6%9C%AA%E5%91%BD%E5%90%8D.bmp" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="./Matttt的空間_ QT編譯成靜態(static)_files/未命名(6).bmp"></a></div>
+version name&nbsp; 填入你知道的名子<br>
+QMake Location&nbsp; 填入你編好的靜態Qt函式庫裡的bin的qmake.exe檔案<br>
+MinGW Directory&nbsp; 填入MinG編譯器的位置<br>
+不管是靜態的那個資料夾或是動態的都可以<br>
+所以可以將靜態的MinGW刪除然後指向動態的<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://2.bp.blogspot.com/_R_-47Sr-DXQ/TDwRKxdgpMI/AAAAAAAAATk/qIC7-eq4srs/s1600/%E6%9C%AA%E5%91%BD%E5%90%8D.bmp" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="./Matttt的空間_ QT編譯成靜態(static)_files/未命名(7).bmp"></a></div>
+OK就可以了<br>
+接下來就是將你所寫好的Qt程式用靜態編譯<br>
+先開啟你的專案<br>
+點到Project<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://2.bp.blogspot.com/_R_-47Sr-DXQ/TDwRyfhOpiI/AAAAAAAAATs/qTWBkxforJI/s1600/%E6%9C%AA%E5%91%BD%E5%90%8D.bmp" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="./Matttt的空間_ QT編譯成靜態(static)_files/未命名(8).bmp"></a></div>
+新增你剛剛設定好的環境<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://2.bp.blogspot.com/_R_-47Sr-DXQ/TDwSCUqqcBI/AAAAAAAAAT0/o9a3e13SlsM/s1600/%E6%9C%AA%E5%91%BD%E5%90%8D.bmp" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="./Matttt的空間_ QT編譯成靜態(static)_files/未命名(9).bmp"></a></div>
+它會要你輸入新的Configuration的名子<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://1.bp.blogspot.com/_R_-47Sr-DXQ/TDwSWOwilLI/AAAAAAAAAT8/M4CxMeHEb98/s1600/%E6%9C%AA%E5%91%BD%E5%90%8D.bmp" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="./Matttt的空間_ QT編譯成靜態(static)_files/未命名(10).bmp"></a></div>
+輸入完後選到你剛剛設定完後的debug<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://2.bp.blogspot.com/_R_-47Sr-DXQ/TDwSimmh0uI/AAAAAAAAAUE/JsD6VRZf6vQ/s1600/%E6%9C%AA%E5%91%BD%E5%90%8D.bmp" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="./Matttt的空間_ QT編譯成靜態(static)_files/未命名(11).bmp"></a></div>
+將它刪除<br>
+因為Qt的靜態版本不能用來編譯debug<br>
+所以將它刪除以免選錯<br>
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+接下來就可以將上面的編譯模式設定為靜態<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://3.bp.blogspot.com/_R_-47Sr-DXQ/TDwTHX_nEvI/AAAAAAAAAUM/45tziAmxVmk/s1600/%E6%9C%AA%E5%91%BD%E5%90%8D.bmp" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="./Matttt的空間_ QT編譯成靜態(static)_files/未命名(12).bmp"></a></div>
+&nbsp;編譯後就可以了<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://1.bp.blogspot.com/_R_-47Sr-DXQ/TDwTTbX5EZI/AAAAAAAAAUU/Su-PVr2KQYs/s1600/%E6%9C%AA%E5%91%BD%E5%90%8D.bmp" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="./Matttt的空間_ QT編譯成靜態(static)_files/未命名(13).bmp"></a></div>
+<br>
+<br>
+<div style="clear: both;"></div>
+</div>
+<div class="post-footer">
+<div class="post-footer-line post-footer-line-1">
+<span class="reaction-buttons">
+</span>
+<span class="star-ratings">
+</span>
+<span class="post-backlinks post-comment-link">
+</span>
+<span class="post-icons">
+<span class="item-control blog-admin pid-2008607510">
+<a href="https://www.blogger.com/post-edit.g?blogID=5127187991066542514&amp;postID=7498760643098067719&amp;from=pencil" title="編輯文章">
+<img alt="" class="icon-action" height="18" src="./Matttt的空間_ QT編譯成靜態(static)_files/icon18_edit_allbkg.gif" width="18">
+</a>
+</span>
+</span>
+</div>
+<div class="post-footer-line post-footer-line-3">
+<span class="post-location">
+</span>
+</div>
+</div>
+</div>
+<div class="comments" id="comments">
+<a name="comments"></a>
+<h4>
+0
+意見:
+        
+</h4>
+<dl id="comments-block">
+</dl>
+<p class="comment-footer">
+</p><div class="comment-form">
+<a name="comment-form"></a>
+<h4 id="comment-post-message">張貼留言</h4>
+<p>
+</p>
+<a href="https://www.blogger.com/comment-iframe.g?blogID=5127187991066542514&amp;postID=7498760643098067719&amp;blogspotRpcToken=1182611" id="comment-editor-src"></a>
+<iframe allowtransparency="true" class="blogger-iframe-colorize blogger-comment-from-post" frameborder="0" height="275px" id="comment-editor" name="comment-editor" scrolling="no" src="./Matttt的空間_ QT編譯成靜態(static)_files/comment-iframe.html" width="100%" data-resized="true"></iframe>
+<script type="text/javascript" src="./Matttt的空間_ QT編譯成靜態(static)_files/2919819878-comment_from_post_iframe.js.下載"></script>
+<script type="text/javascript">
+      BLOG_CMT_createIframe('https://www.blogger.com/rpc_relay.html', '18441603003396753299');
+    </script>
+</div>
+<p></p>
+<div id="backlinks-container">
+<div id="Blog1_backlinks-container">
+</div>
+</div>
+</div>
+</div>
+<div class="blog-pager" id="blog-pager">
+<span id="blog-pager-newer-link">
+<a class="blog-pager-newer-link" href="http://matttt-blog.blogspot.tw/2010/07/qtlibgccsdw2-1dll.html" id="Blog1_blog-pager-newer-link" title="較新的文章">較新的文章</a>
+</span>
+<span id="blog-pager-older-link">
+<a class="blog-pager-older-link" href="http://matttt-blog.blogspot.tw/2010/05/apacheaspnet.html" id="Blog1_blog-pager-older-link" title="較舊的文章">較舊的文章</a>
+</span>
+<a class="home-link" href="http://matttt-blog.blogspot.tw/">首頁</a>
+</div>
+<div class="clear"></div>
+</div></div>
+</div>
+<div id="sidebar-wrapper">
+<div class="sidebar section" id="sidebar"><div class="widget Text" data-version="1" id="Text1">
+<h2 class="title">置頂</h2>
+<div class="widget-content">
+<a href="http://matttt-blog.blogspot.com/2013/06/nodejs.html">node.js教學</a><br><br>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=5127187991066542514&amp;widgetType=Text&amp;widgetId=Text1&amp;action=editWidget&amp;sectionId=sidebar" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;Text1&quot;));" target="configText1" title="編輯">
+<img alt="" height="18" src="./Matttt的空間_ QT編譯成靜態(static)_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div><div class="widget BlogArchive" data-version="1" id="BlogArchive1">
+<h2>Blog檔案庫</h2>
+<div class="widget-content">
+<div id="ArchiveList">
+<div id="BlogArchive1_ArchiveList">
+<ul>
+<li class="archivedate collapsed">
+<a class="toggle" href="http://matttt-blog.blogspot.com/2010/07/qtstatic.html?widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=toggle&amp;dir=open&amp;toggle=YEARLY-1356969600000&amp;toggleopen=MONTHLY-1277913600000">
+<span class="zippy">
+
+              ►
+            
+</span>
+</a>
+<a class="post-count-link" href="http://matttt-blog.blogspot.tw/search?updated-min=2013-01-01T00:00:00%2B08:00&amp;updated-max=2014-01-01T00:00:00%2B08:00&amp;max-results=15">2013</a>
+<span class="post-count" dir="ltr">(15)</span>
+<ul>
+<li class="archivedate collapsed">
+<a class="toggle" href="http://matttt-blog.blogspot.com/2010/07/qtstatic.html?widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=toggle&amp;dir=open&amp;toggle=MONTHLY-1370016000000&amp;toggleopen=MONTHLY-1277913600000">
+<span class="zippy">
+
+              ►
+            
+</span>
+</a>
+<a class="post-count-link" href="http://matttt-blog.blogspot.tw/2013_06_01_archive.html">六月</a>
+<span class="post-count" dir="ltr">(12)</span>
+</li>
+</ul>
+<ul>
+<li class="archivedate collapsed">
+<a class="toggle" href="http://matttt-blog.blogspot.com/2010/07/qtstatic.html?widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=toggle&amp;dir=open&amp;toggle=MONTHLY-1367337600000&amp;toggleopen=MONTHLY-1277913600000">
+<span class="zippy">
+
+              ►
+            
+</span>
+</a>
+<a class="post-count-link" href="http://matttt-blog.blogspot.tw/2013_05_01_archive.html">五月</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="archivedate collapsed">
+<a class="toggle" href="http://matttt-blog.blogspot.com/2010/07/qtstatic.html?widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=toggle&amp;dir=open&amp;toggle=YEARLY-1325347200000&amp;toggleopen=MONTHLY-1277913600000">
+<span class="zippy">
+
+              ►
+            
+</span>
+</a>
+<a class="post-count-link" href="http://matttt-blog.blogspot.tw/search?updated-min=2012-01-01T00:00:00%2B08:00&amp;updated-max=2013-01-01T00:00:00%2B08:00&amp;max-results=5">2012</a>
+<span class="post-count" dir="ltr">(5)</span>
+<ul>
+<li class="archivedate collapsed">
+<a class="toggle" href="http://matttt-blog.blogspot.com/2010/07/qtstatic.html?widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=toggle&amp;dir=open&amp;toggle=MONTHLY-1335801600000&amp;toggleopen=MONTHLY-1277913600000">
+<span class="zippy">
+
+              ►
+            
+</span>
+</a>
+<a class="post-count-link" href="http://matttt-blog.blogspot.tw/2012_05_01_archive.html">五月</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul>
+<li class="archivedate collapsed">
+<a class="toggle" href="http://matttt-blog.blogspot.com/2010/07/qtstatic.html?widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=toggle&amp;dir=open&amp;toggle=MONTHLY-1328025600000&amp;toggleopen=MONTHLY-1277913600000">
+<span class="zippy">
+
+              ►
+            
+</span>
+</a>
+<a class="post-count-link" href="http://matttt-blog.blogspot.tw/2012_02_01_archive.html">二月</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul>
+<li class="archivedate collapsed">
+<a class="toggle" href="http://matttt-blog.blogspot.com/2010/07/qtstatic.html?widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=toggle&amp;dir=open&amp;toggle=MONTHLY-1325347200000&amp;toggleopen=MONTHLY-1277913600000">
+<span class="zippy">
+
+              ►
+            
+</span>
+</a>
+<a class="post-count-link" href="http://matttt-blog.blogspot.tw/2012_01_01_archive.html">一月</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="archivedate collapsed">
+<a class="toggle" href="http://matttt-blog.blogspot.com/2010/07/qtstatic.html?widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=toggle&amp;dir=open&amp;toggle=YEARLY-1293811200000&amp;toggleopen=MONTHLY-1277913600000">
+<span class="zippy">
+
+              ►
+            
+</span>
+</a>
+<a class="post-count-link" href="http://matttt-blog.blogspot.tw/search?updated-min=2011-01-01T00:00:00%2B08:00&amp;updated-max=2012-01-01T00:00:00%2B08:00&amp;max-results=6">2011</a>
+<span class="post-count" dir="ltr">(6)</span>
+<ul>
+<li class="archivedate collapsed">
+<a class="toggle" href="http://matttt-blog.blogspot.com/2010/07/qtstatic.html?widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=toggle&amp;dir=open&amp;toggle=MONTHLY-1304179200000&amp;toggleopen=MONTHLY-1277913600000">
+<span class="zippy">
+
+              ►
+            
+</span>
+</a>
+<a class="post-count-link" href="http://matttt-blog.blogspot.tw/2011_05_01_archive.html">五月</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul>
+<li class="archivedate collapsed">
+<a class="toggle" href="http://matttt-blog.blogspot.com/2010/07/qtstatic.html?widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=toggle&amp;dir=open&amp;toggle=MONTHLY-1301587200000&amp;toggleopen=MONTHLY-1277913600000">
+<span class="zippy">
+
+              ►
+            
+</span>
+</a>
+<a class="post-count-link" href="http://matttt-blog.blogspot.tw/2011_04_01_archive.html">四月</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul>
+<li class="archivedate collapsed">
+<a class="toggle" href="http://matttt-blog.blogspot.com/2010/07/qtstatic.html?widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=toggle&amp;dir=open&amp;toggle=MONTHLY-1298908800000&amp;toggleopen=MONTHLY-1277913600000">
+<span class="zippy">
+
+              ►
+            
+</span>
+</a>
+<a class="post-count-link" href="http://matttt-blog.blogspot.tw/2011_03_01_archive.html">三月</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="archivedate expanded">
+<a class="toggle" href="http://matttt-blog.blogspot.com/2010/07/qtstatic.html?widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=toggle&amp;dir=close&amp;toggle=YEARLY-1262275200000&amp;toggleopen=MONTHLY-1277913600000">
+<span class="zippy toggle-open">▼ </span>
+</a>
+<a class="post-count-link" href="http://matttt-blog.blogspot.tw/search?updated-min=2010-01-01T00:00:00%2B08:00&amp;updated-max=2011-01-01T00:00:00%2B08:00&amp;max-results=19">2010</a>
+<span class="post-count" dir="ltr">(19)</span>
+<ul>
+<li class="archivedate collapsed">
+<a class="toggle" href="http://matttt-blog.blogspot.com/2010/07/qtstatic.html?widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=toggle&amp;dir=open&amp;toggle=MONTHLY-1291132800000&amp;toggleopen=MONTHLY-1277913600000">
+<span class="zippy">
+
+              ►
+            
+</span>
+</a>
+<a class="post-count-link" href="http://matttt-blog.blogspot.tw/2010_12_01_archive.html">十二月</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul>
+<li class="archivedate collapsed">
+<a class="toggle" href="http://matttt-blog.blogspot.com/2010/07/qtstatic.html?widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=toggle&amp;dir=open&amp;toggle=MONTHLY-1285862400000&amp;toggleopen=MONTHLY-1277913600000">
+<span class="zippy">
+
+              ►
+            
+</span>
+</a>
+<a class="post-count-link" href="http://matttt-blog.blogspot.tw/2010_10_01_archive.html">十月</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul>
+<li class="archivedate expanded">
+<a class="toggle" href="http://matttt-blog.blogspot.com/2010/07/qtstatic.html?widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=toggle&amp;dir=close&amp;toggle=MONTHLY-1277913600000&amp;toggleopen=MONTHLY-1277913600000">
+<span class="zippy toggle-open">▼ </span>
+</a>
+<a class="post-count-link" href="http://matttt-blog.blogspot.tw/2010_07_01_archive.html">七月</a>
+<span class="post-count" dir="ltr">(4)</span>
+<ul class="posts">
+<li><a href="http://matttt-blog.blogspot.tw/2010/07/qtuartrs232.html">Qt撰寫UART(RS232)</a></li>
+<li><a href="http://matttt-blog.blogspot.tw/2010/07/qtmingwm10dll.html">QT編譯成靜態還是出現"找不到mingwm10.dll"解決辦法</a></li>
+<li><a href="http://matttt-blog.blogspot.tw/2010/07/qtlibgccsdw2-1dll.html">QT編譯成靜態還是出現"找不到libgcc_s_dw2-1.dll"解決辦法</a></li>
+<li><a href="http://matttt-blog.blogspot.tw/2010/07/qtstatic.html">QT編譯成靜態(static)</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="archivedate collapsed">
+<a class="toggle" href="http://matttt-blog.blogspot.com/2010/07/qtstatic.html?widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=toggle&amp;dir=open&amp;toggle=MONTHLY-1272643200000&amp;toggleopen=MONTHLY-1277913600000">
+<span class="zippy">
+
+              ►
+            
+</span>
+</a>
+<a class="post-count-link" href="http://matttt-blog.blogspot.tw/2010_05_01_archive.html">五月</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul>
+<li class="archivedate collapsed">
+<a class="toggle" href="http://matttt-blog.blogspot.com/2010/07/qtstatic.html?widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=toggle&amp;dir=open&amp;toggle=MONTHLY-1270051200000&amp;toggleopen=MONTHLY-1277913600000">
+<span class="zippy">
+
+              ►
+            
+</span>
+</a>
+<a class="post-count-link" href="http://matttt-blog.blogspot.tw/2010_04_01_archive.html">四月</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul>
+<li class="archivedate collapsed">
+<a class="toggle" href="http://matttt-blog.blogspot.com/2010/07/qtstatic.html?widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=toggle&amp;dir=open&amp;toggle=MONTHLY-1264953600000&amp;toggleopen=MONTHLY-1277913600000">
+<span class="zippy">
+
+              ►
+            
+</span>
+</a>
+<a class="post-count-link" href="http://matttt-blog.blogspot.tw/2010_02_01_archive.html">二月</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul>
+<li class="archivedate collapsed">
+<a class="toggle" href="http://matttt-blog.blogspot.com/2010/07/qtstatic.html?widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=toggle&amp;dir=open&amp;toggle=MONTHLY-1262275200000&amp;toggleopen=MONTHLY-1277913600000">
+<span class="zippy">
+
+              ►
+            
+</span>
+</a>
+<a class="post-count-link" href="http://matttt-blog.blogspot.tw/2010_01_01_archive.html">一月</a>
+<span class="post-count" dir="ltr">(6)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="archivedate collapsed">
+<a class="toggle" href="http://matttt-blog.blogspot.com/2010/07/qtstatic.html?widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=toggle&amp;dir=open&amp;toggle=YEARLY-1230739200000&amp;toggleopen=MONTHLY-1277913600000">
+<span class="zippy">
+
+              ►
+            
+</span>
+</a>
+<a class="post-count-link" href="http://matttt-blog.blogspot.tw/search?updated-min=2009-01-01T00:00:00%2B08:00&amp;updated-max=2010-01-01T00:00:00%2B08:00&amp;max-results=17">2009</a>
+<span class="post-count" dir="ltr">(17)</span>
+<ul>
+<li class="archivedate collapsed">
+<a class="toggle" href="http://matttt-blog.blogspot.com/2010/07/qtstatic.html?widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=toggle&amp;dir=open&amp;toggle=MONTHLY-1259596800000&amp;toggleopen=MONTHLY-1277913600000">
+<span class="zippy">
+
+              ►
+            
+</span>
+</a>
+<a class="post-count-link" href="http://matttt-blog.blogspot.tw/2009_12_01_archive.html">十二月</a>
+<span class="post-count" dir="ltr">(12)</span>
+</li>
+</ul>
+<ul>
+<li class="archivedate collapsed">
+<a class="toggle" href="http://matttt-blog.blogspot.com/2010/07/qtstatic.html?widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=toggle&amp;dir=open&amp;toggle=MONTHLY-1251734400000&amp;toggleopen=MONTHLY-1277913600000">
+<span class="zippy">
+
+              ►
+            
+</span>
+</a>
+<a class="post-count-link" href="http://matttt-blog.blogspot.tw/2009_09_01_archive.html">九月</a>
+<span class="post-count" dir="ltr">(5)</span>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=5127187991066542514&amp;widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=editWidget&amp;sectionId=sidebar" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;BlogArchive1&quot;));" target="configBlogArchive1" title="編輯">
+<img alt="" height="18" src="./Matttt的空間_ QT編譯成靜態(static)_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget Label" data-version="1" id="Label1">
+<h2>Tags</h2>
+<div class="widget-content">
+<ul>
+<li>
+<a dir="ltr" href="http://matttt-blog.blogspot.tw/search/label/Ubuntu">Ubuntu</a>
+<span dir="ltr">(14)</span>
+</li>
+<li>
+<a dir="ltr" href="http://matttt-blog.blogspot.tw/search/label/node.js">node.js</a>
+<span dir="ltr">(11)</span>
+</li>
+<li>
+<a dir="ltr" href="http://matttt-blog.blogspot.tw/search/label/PHP">PHP</a>
+<span dir="ltr">(7)</span>
+</li>
+<li>
+<a dir="ltr" href="http://matttt-blog.blogspot.tw/search/label/Embedded%20Linux">Embedded Linux</a>
+<span dir="ltr">(6)</span>
+</li>
+<li>
+<a dir="ltr" href="http://matttt-blog.blogspot.tw/search/label/QT">QT</a>
+<span dir="ltr">(6)</span>
+</li>
+<li>
+<a dir="ltr" href="http://matttt-blog.blogspot.tw/search/label/Zstack">Zstack</a>
+<span dir="ltr">(6)</span>
+</li>
+<li>
+<a dir="ltr" href="http://matttt-blog.blogspot.tw/search/label/Android">Android</a>
+<span dir="ltr">(3)</span>
+</li>
+<li>
+<a dir="ltr" href="http://matttt-blog.blogspot.tw/search/label/CC2430">CC2430</a>
+<span dir="ltr">(3)</span>
+</li>
+<li>
+<a dir="ltr" href="http://matttt-blog.blogspot.tw/search/label/Apache">Apache</a>
+<span dir="ltr">(2)</span>
+</li>
+<li>
+<a dir="ltr" href="http://matttt-blog.blogspot.tw/search/label/zigbee">zigbee</a>
+<span dir="ltr">(2)</span>
+</li>
+<li>
+<a dir="ltr" href="http://matttt-blog.blogspot.tw/search/label/%E9%98%B2%E7%81%AB%E7%89%86">防火牆</a>
+<span dir="ltr">(2)</span>
+</li>
+<li>
+<a dir="ltr" href="http://matttt-blog.blogspot.tw/search/label/Blogger">Blogger</a>
+<span dir="ltr">(1)</span>
+</li>
+<li>
+<a dir="ltr" href="http://matttt-blog.blogspot.tw/search/label/FPGA">FPGA</a>
+<span dir="ltr">(1)</span>
+</li>
+<li>
+<a dir="ltr" href="http://matttt-blog.blogspot.tw/search/label/virtualbox">virtualbox</a>
+<span dir="ltr">(1)</span>
+</li>
+<li>
+<a dir="ltr" href="http://matttt-blog.blogspot.tw/search/label/vmware">vmware</a>
+<span dir="ltr">(1)</span>
+</li>
+<li>
+<a dir="ltr" href="http://matttt-blog.blogspot.tw/search/label/%E5%89%B5%E6%84%8F%E6%80%9D%E8%80%83">創意思考</a>
+<span dir="ltr">(1)</span>
+</li>
+</ul>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=5127187991066542514&amp;widgetType=Label&amp;widgetId=Label1&amp;action=editWidget&amp;sectionId=sidebar" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;Label1&quot;));" target="configLabel1" title="編輯">
+<img alt="" height="18" src="./Matttt的空間_ QT編譯成靜態(static)_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget BlogSearch" data-version="1" id="BlogSearch1">
+<h2 class="title">搜尋此網誌</h2>
+<div class="widget-content">
+<div id="BlogSearch1_form">
+<form action="http://matttt-blog.blogspot.tw/search" class="gsc-search-box">
+<table cellpadding="0" cellspacing="0" class="gsc-search-box">
+<tbody>
+<tr>
+<td class="gsc-input">
+<input autocomplete="off" class="gsc-input" name="q" size="10" title="search" type="text" value="">
+</td>
+<td class="gsc-search-button">
+<input class="gsc-search-button" title="search" type="submit" value="搜尋">
+</td>
+</tr>
+</tbody>
+</table>
+</form>
+</div>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=5127187991066542514&amp;widgetType=BlogSearch&amp;widgetId=BlogSearch1&amp;action=editWidget&amp;sectionId=sidebar" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;BlogSearch1&quot;));" target="configBlogSearch1" title="編輯">
+<img alt="" height="18" src="./Matttt的空間_ QT編譯成靜態(static)_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div><div class="widget HTML" data-version="1" id="HTML1">
+<h2 class="title">訪客瀏覽數</h2>
+<div class="widget-content">
+<!-- Histats.com  START  (standard)-->
+<script type="text/javascript">document.write(unescape("%3Cscript src=%27http://s10.histats.com/js15.js%27 type=%27text/javascript%27%3E%3C/script%3E"));</script><script src="./Matttt的空間_ QT編譯成靜態(static)_files/js15.js.下載" type="text/javascript"></script>
+<a href="http://www.histats.com/" target="_blank" title="page hit counter"><script type="text/javascript">
+try {Histats.start(1,1110515,4,359,112,48,"00011001");
+Histats.track_hits();} catch(err){};
+</script><div id="histats_counter_5229" style="display: block;"><a href="http://www.histats.com/viewstats/?sid=1110515&amp;ccid=359" target="_blank"><canvas id="histats_counter_5229_canvas" width="112" height="49"></canvas></a></div></a>
+<noscript>&lt;a href="http://www.histats.com" target="_blank"&gt;&lt;img src="http://sstatic1.histats.com/0.gif?1110515&amp;amp;101" alt="page hit counter" border="0" /&gt;&lt;/a&gt;</noscript>
+<!-- Histats.com  END  -->
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=5127187991066542514&amp;widgetType=HTML&amp;widgetId=HTML1&amp;action=editWidget&amp;sectionId=sidebar" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;HTML1&quot;));" target="configHTML1" title="編輯">
+<img alt="" height="18" src="./Matttt的空間_ QT編譯成靜態(static)_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div></div>
+</div>
+<!-- spacer for skins that want sidebar and main to be the same height-->
+<div class="clear">&nbsp;</div>
+</div>
+</div>
+<!-- end content-wrapper -->
+</div></div><script async="" type="text/javascript" src="./Matttt的空間_ QT編譯成靜態(static)_files/1110515.php"></script>
+<!-- end outer-wrapper -->
+<div id="footer">
+<div id="footer_inner">
+<div id="footer_text">
+<a href="http://matttt-blog.blogspot.tw/">Matttt的空間</a> All Rights Reserved<br>
+<a href="http://www.deluxetemplates.net/">Blogger Templates</a> created by <b><a href="http://www.deluxetemplates.net/">Deluxe Templates</a></b>
+<br> Wordpress theme by <a href="http://www.webdesignlessons.com/">WebDesignLessons.com</a>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./Matttt的空間_ QT編譯成靜態(static)_files/ga.js.下載" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-12235547-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+<script type="text/javascript" src="./Matttt的空間_ QT編譯成靜態(static)_files/684395354-widgets.js.下載"></script>
+<script type="text/javascript" src="./Matttt的空間_ QT編譯成靜態(static)_files/plusone.js.下載" gapi_processed="true"></script>
+<script type="text/javascript">
+window['__wavt'] = 'AOuZoY6-JeejbiBOUw5IObYqLpi4s8Ns_g:1490075935400';_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d5127187991066542514','//matttt-blog.blogspot.tw/2010/07/qtstatic.html','5127187991066542514');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '5127187991066542514', 'bloggerUrl': 'https://www.blogger.com', 'title': 'Matttt的空間', 'pageType': 'item', 'postId': '7498760643098067719', 'url': 'http://matttt-blog.blogspot.tw/2010/07/qtstatic.html', 'canonicalUrl': 'http://matttt-blog.blogspot.com/2010/07/qtstatic.html', 'homepageUrl': 'http://matttt-blog.blogspot.tw/', 'searchUrl': 'http://matttt-blog.blogspot.tw/search', 'canonicalHomepageUrl': 'http://matttt-blog.blogspot.com/', 'blogspotFaviconUrl': 'http://matttt-blog.blogspot.tw/favicon.ico', 'hasCustomDomain': false, 'enabledCommentProfileImages': true, 'gPlusViewType': 'FILTERED_POSTMOD', 'adultContent': false, 'analyticsAccountNumber': '', 'useUniversalAnalytics': false, 'pageName': 'QT編譯成靜態(static)', 'pageTitle': 'Matttt的空間: QT編譯成靜態(static)', 'encoding': 'UTF-8', 'locale': 'zh-TW', 'localeUnderscoreDelimited': 'zh_tw', 'languageDirection': 'ltr', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'feedLinks': '\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22Matttt的空間 - Atom\x22 href\x3d\x22http://matttt-blog.blogspot.com/feeds/posts/default\x22 /\x3e\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/rss+xml\x22 title\x3d\x22Matttt的空間 - RSS\x22 href\x3d\x22http://matttt-blog.blogspot.com/feeds/posts/default?alt\x3drss\x22 /\x3e\n\x3clink rel\x3d\x22service.post\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22Matttt的空間 - Atom\x22 href\x3d\x22https://www.blogger.com/feeds/5127187991066542514/posts/default\x22 /\x3e\n\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22Matttt的空間 - Atom\x22 href\x3d\x22http://matttt-blog.blogspot.com/feeds/7498760643098067719/comments/default\x22 /\x3e\n', 'meTag': '', 'openIdOpTag': '', 'postImageThumbnailUrl': 'http://1.bp.blogspot.com/_R_-47Sr-DXQ/TDp1cQ4Pl_I/AAAAAAAAASk/LjyrE4BDTaI/s72-c/%E6%9C%AA%E5%91%BD%E5%90%8D.bmp', 'postImageUrl': 'http://1.bp.blogspot.com/_R_-47Sr-DXQ/TDp1cQ4Pl_I/AAAAAAAAASk/LjyrE4BDTaI/s320/%E6%9C%AA%E5%91%BD%E5%90%8D.bmp', 'mobileHeadScript': '', 'adsenseHostId': 'ca-host-pub-1556223355139109', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/0109c7dfa1710792', 'plusOneApiSrc': 'https://apis.google.com/js/plusone.js', 'sharing': {'platforms': [{'name': '取得連結', 'key': 'link', 'shareMessage': '取得連結', 'target': ''}, {'name': 'Facebook', 'key': 'facebook', 'shareMessage': '分享到 Facebook', 'target': 'facebook'}, {'name': 'BlogThis&#65281;', 'key': 'blogThis', 'shareMessage': 'BlogThis&#65281;', 'target': 'blog'}, {'name': 'Twitter', 'key': 'twitter', 'shareMessage': '分享到 Twitter', 'target': 'twitter'}, {'name': 'Pinterest', 'key': 'pinterest', 'shareMessage': '分享到 Pinterest', 'target': 'pinterest'}, {'name': 'Google+', 'key': 'googlePlus', 'shareMessage': '分享到 Google+', 'target': 'googleplus'}, {'name': '以電子郵件傳送', 'key': 'email', 'shareMessage': '以電子郵件傳送', 'target': 'email'}], 'googlePlusShareButtonWidth': 300, 'googlePlusBootstrap': '\x3cscript type\x3d\x22text/javascript\x22\x3ewindow.___gcfg \x3d {\x27lang\x27: \x27zh_TW\x27};\x3c/script\x3e'}, 'jumpLinkMessage': '閱讀更多 &#187;'}}, {'name': 'features', 'data': {'enhancedSourcesets': 'true', 'unsupported_browser_message': 'false'}}, {'name': 'messages', 'data': {'linkCopiedToClipboard': '已將連結複製到剪貼簿&#65281;', 'postLink': '文章連結'}}, {'name': 'template', 'data': {'name': 'custom', 'localizedName': '自訂', 'isResponsive': false, 'isAlternateRendering': false, 'isCustom': true}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '?view\x3dclassic'}, 'flipcard': {'name': 'flipcard', 'url': '?view\x3dflipcard'}, 'magazine': {'name': 'magazine', 'url': '?view\x3dmagazine'}, 'mosaic': {'name': 'mosaic', 'url': '?view\x3dmosaic'}, 'sidebar': {'name': 'sidebar', 'url': '?view\x3dsidebar'}, 'snapshot': {'name': 'snapshot', 'url': '?view\x3dsnapshot'}, 'timeslide': {'name': 'timeslide', 'url': '?view\x3dtimeslide'}, 'isMobile': false, 'title': 'QT編譯成靜態(static)', 'description': '為什麼要編譯成靜態的  因為時常把程式寫好編譯後  要將程式去別台執行  就會出現缺少XXXXX.dll  這就是編譯器是用動態連結  除非把所有需要的dll都一起複製帶著走  要不然程式是無法動作的  因此要將程式所用到的函數都包在一個執行檔裡面  所以要編譯成靜態的   要是...', 'featuredImage': 'http://1.bp.blogspot.com/_R_-47Sr-DXQ/TDp1cQ4Pl_I/AAAAAAAAASk/LjyrE4BDTaI/s320/%E6%9C%AA%E5%91%BD%E5%90%8D.bmp', 'url': 'http://matttt-blog.blogspot.tw/2010/07/qtstatic.html', 'type': 'item', 'isSingleItem': true, 'isMultipleItems': false, 'isError': false, 'isPage': false, 'isPost': true, 'isHomepage': false, 'isArchive': false, 'isLabelSearch': false, 'postId': 7498760643098067719}}]);
+_WidgetManager._RegisterWidget('_NavbarView', new _WidgetInfo('Navbar1', 'navbar', null, document.getElementById('Navbar1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', 'header', null, document.getElementById('Header1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', null, document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'lightboxEnabled': true, 'lightboxModuleUrl': 'https://www.blogger.com/static/v1/jsbin/3677213403-lbx__zh_tw.js', 'lightboxCssUrl': 'https://www.blogger.com/static/v1/v-css/368954415-lightbox_bundle.css'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_TextView', new _WidgetInfo('Text1', 'sidebar', null, document.getElementById('Text1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogArchiveView', new _WidgetInfo('BlogArchive1', 'sidebar', null, document.getElementById('BlogArchive1'), {'languageDirection': 'ltr', 'loadingMessage': '載入中\x26hellip;'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LabelView', new _WidgetInfo('Label1', 'sidebar', null, document.getElementById('Label1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogSearchView', new _WidgetInfo('BlogSearch1', 'sidebar', null, document.getElementById('BlogSearch1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML1', 'sidebar', null, document.getElementById('HTML1'), {}, 'displayModeFull'));
+</script>
+
+<script async="" type="text/javascript" src="./Matttt的空間_ QT編譯成靜態(static)_files/cc_359.js.下載"></script><script async="" src="./Matttt的空間_ QT編譯成靜態(static)_files/saved_resource(1)"></script><link type="text/css" rel="stylesheet" href="./Matttt的空間_ QT編譯成靜態(static)_files/368954415-lightbox_bundle.css"><script type="text/javascript" src="./Matttt的空間_ QT編譯成靜態(static)_files/3677213403-lbx__zh_tw.js.下載"></script></body></html>
